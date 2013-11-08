@@ -1,4 +1,9 @@
-task :default => :bin
+$:.unshift File.dirname(__FILE__) + 'lib'
+
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new
+task :default => :spec
+
 
 desc "Run lib/matriz.rb"
 task :bin do
@@ -6,11 +11,11 @@ task :bin do
 end
 
 desc "Run test with --format documentation"
-task :spec do
-   sh "rspec -I. rspec/rspec_p8.rb --format documentation"
+task :spec_local do
+   sh "rspec -I. spec/rspec_p8_spec.rb --format documentation"
 end
 
 desc "Run test with format: html"
  task:thtml do
-    sh" rspec -I. rspec/rspec_p8.rb --format html"
+    sh" rspec -I. spec/rspec_p8_spec.rb --format html"
  end

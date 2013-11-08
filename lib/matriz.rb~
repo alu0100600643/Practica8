@@ -1,4 +1,4 @@
-
+require "../fraccion.rb"
 class Matriz
 
 	attr_reader :m, :t
